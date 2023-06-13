@@ -53,7 +53,7 @@ def calculate_imt():
                 messagebox.showinfo(title="Result",
                                     message=f"BMI = {imt}. Obesity of the third degree")
 
-
+#making ui
 app = tkinter.Tk()
 app.title("BMI calculator")
 app.geometry("300x200")
