@@ -23,10 +23,11 @@ def calculate_imt():
 
         else:
 
-            imt = m / (h**2)
-            imt = round(imt, 2)
+            if (h <= 0) or (m <= 0):
+                messagebox.showerror(title="Result",
+                                     message="Value is less than zero")
 
-            if imt <= 16:
+            elif imt <= 16:
                 messagebox.showinfo(title="Result",
                                     message=f"BMI = {imt}. Pronounced lack of body weight")
 
@@ -55,16 +56,16 @@ def calculate_imt():
                                     message=f"BMI = {imt}. Obesity of the third degree")
 
 
-# making ui
 ctk.set_appearance_mode("dark")
 app = ctk.CTk()
 app.title("BMI calculator")
-app.geometry("300x200")
+app.geometry("300x200+650+350")
 app.resizable(width=False, height=False)
 
 height = ctk.CTkLabel(
     app,
     text="Enter height: ",
+    text_color="yellow",
     font=("Times New Roman", 14, "bold")
 )
 
@@ -73,15 +74,25 @@ height.grid(column=0, row=0)
 mass = ctk.CTkLabel(
     app,
     text="Enter mass: ",
+    text_color="yellow",
     font=("Times New Roman", 14, "bold")
 )
 
 mass.grid(column=0, row=1)
 
-tbl_h = ctk.CTkEntry(app, width=100)
+tbl_h = ctk.CTkEntry(
+    app,
+    border_width=1,
+    border_color="yellow",
+    width=100
+)
 tbl_h.grid(column=1, row=0, pady=10)
 
-tbl_m = ctk.CTkEntry(app, width=100)
+tbl_m = ctk.CTkEntry(
+    app,
+    border_width=1,
+    border_color="yellow",
+    width=100)
 tbl_m.grid(column=1, row=1, pady=10)
 
 btn = ctk.CTkButton(
