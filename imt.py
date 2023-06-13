@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import messagebox
+import customtkinter as ctk
 
 
 def calculate_imt():
@@ -53,27 +54,46 @@ def calculate_imt():
                 messagebox.showinfo(title="Result",
                                     message=f"BMI = {imt}. Obesity of the third degree")
 
-#making ui
-app = tkinter.Tk()
+
+# making ui
+ctk.set_appearance_mode("dark")
+app = ctk.CTk()
 app.title("BMI calculator")
 app.geometry("300x200")
 app.resizable(width=False, height=False)
 
-height = tkinter.Label(app, text="Enter height", font=14)
+height = ctk.CTkLabel(
+    app,
+    text="Enter height: ",
+    font=("Times New Roman", 14, "bold")
+)
+
 height.grid(column=0, row=0)
 
-mass = tkinter.Label(app, text="Enter mass", font=14)
+mass = ctk.CTkLabel(
+    app,
+    text="Enter mass: ",
+    font=("Times New Roman", 14, "bold")
+)
+
 mass.grid(column=0, row=1)
 
-tbl_h = tkinter.Entry(app, width=10)
-tbl_h.grid(column=1, row=0)
+tbl_h = ctk.CTkEntry(app, width=100)
+tbl_h.grid(column=1, row=0, pady=10)
 
-tbl_m = tkinter.Entry(app, width=10)
-tbl_m.grid(column=1, row=1)
+tbl_m = ctk.CTkEntry(app, width=100)
+tbl_m.grid(column=1, row=1, pady=10)
 
-btn = tkinter.Button(app, text="Calculate",
-                     command=calculate_imt)
-btn.grid(column=1, row=2)
+btn = ctk.CTkButton(
+    app,
+    text="Calculate",
+    text_color="yellow",
+    border_width=1,
+    border_color="yellow",
+    command=calculate_imt
+)
+
+btn.grid(column=1, row=2, pady=10)
 
 
 app.mainloop()
