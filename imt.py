@@ -27,6 +27,9 @@ def calculate_imt():
 
         else:
 
+            imt = m / (h**2)
+            imt = round(imt, 2)
+
             if (h <= 0) or (m <= 0):
                 messagebox.showerror(
                     title="Result",
