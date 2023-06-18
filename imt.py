@@ -138,4 +138,5 @@ btn = ctk.CTkButton(
 btn.grid(column=1, row=2, pady=10)
 
 
-app.mainloop()
+if __name__ == '__main__':
+    app.mainloop()
